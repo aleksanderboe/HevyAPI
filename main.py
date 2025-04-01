@@ -1,8 +1,9 @@
 import requests
 import os
-from dotenv import load_dotenv    
 import math
+import json
 
+from dotenv import load_dotenv    
 load_dotenv()
 
 API_KEY = os.getenv("HEVY_API_KEY")
@@ -15,7 +16,6 @@ headers = {
 }
 
 def get_workouts(page=1, page_size=10):
-    """Fetch workouts from Hevy API with pagination."""
     if page < 1:
         raise ValueError("Page number must be 1 or greater")
     if page_size > 10:
@@ -64,8 +64,16 @@ def get_total_workouts(page_size=10):
             all_workouts.extend(workouts)
         else:
             print(f"Failed to fetch page {page}")
-    
+        
     return all_workouts
+
+def save_workouts_to_file(workouts, output_file):
+    try:
+        with open(output_file, 'w', encoding='utf-8') as f:
+            json.dump(workouts, f, indent=2)
+        print(f"Saved {len(workouts)} workouts to {output_file}")
+    except IOError as e:
+        print(f"Error saving workouts to file: {e}")
 
 def main():    
     if not API_KEY:
@@ -79,12 +87,15 @@ def main():
     print(f"Workouts from page {page} (pageSize={page_size}):")
     for i, workout in enumerate(workouts, 1):
         print(f"{i}. {workout.get('title', 'Untitled')} - {workout.get('start_time', 'No date')}")
+        print(workout)
 
     all_workouts = get_total_workouts()
     print(f"\nTotal workouts fetched: {len(all_workouts)}")
     print("All workouts:")
     for i, workout in enumerate(all_workouts, 1):
         print(f"{i}. {workout.get('title', 'Untitled')} - {workout.get('start_time', 'No date')}")
+        
+    save_workouts_to_file(all_workouts, "workouts.json")
 
 if __name__ == "__main__":
     main()
