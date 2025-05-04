@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 API_KEY = os.getenv("HEVY_API_KEY")
 BASE_URL = "https://api.hevy.com/v1"
@@ -52,4 +52,4 @@ if __name__ == "__main__":
         print("Error: HEVY_API_KEY is not set in the environment")
         exit(1)
     print(f"Starting Flask server with API_KEY: {API_KEY[:4]}****")
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(port=5000)
