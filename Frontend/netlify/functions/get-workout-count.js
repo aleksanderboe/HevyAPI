@@ -1,7 +1,7 @@
 // netlify/functions/get-workouts-count.js
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 
-exports.handler = async () => {
+export async function handler() {
   try {
     const response = await fetch('https://api.hevy.com/v1/workouts/count', {
       method: 'GET',

@@ -1,7 +1,7 @@
 // netlify/functions/get-workouts.js
-const fetch = require('node-fetch')
+import fetch from 'node-fetch'
 
-exports.handler = async (event) => {
+export async function handler(event) {
   try {
     const { page = 1, pageSize = 5 } = event.queryStringParameters || {}
     const response = await fetch(
