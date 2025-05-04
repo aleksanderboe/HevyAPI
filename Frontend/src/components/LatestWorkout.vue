@@ -75,7 +75,7 @@
               </div>
             </div>
           </div>
-          <!-- Exercises -->
+          <!-- Exercises بلوك التعليمات -->
           <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
             <h3 class="text-2xl font-semibold text-gray-900 mb-6">Exercises</h3>
             <div class="space-y-6">
@@ -159,13 +159,11 @@ const totalWorkouts = ref(null)
 const loading = ref(false)
 const error = ref(null)
 
-const API_BASE_URL = 'http://127.0.0.1:5000/api'
-
 const fetchLatestWorkout = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await fetch(`${API_BASE_URL}/workouts/all?page=1&pageSize=1`, {
+    const response = await fetch('/.netlify/functions/get-workouts?page=1&pageSize=1', {
       headers: {
         Accept: 'application/json',
       },
@@ -182,7 +180,7 @@ const fetchLatestWorkout = async () => {
 
 const fetchWorkoutCount = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/workouts/count`, {
+    const response = await fetch('/.netlify/functions/get-workouts-count', {
       headers: {
         Accept: 'application/json',
       },
