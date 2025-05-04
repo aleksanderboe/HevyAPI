@@ -1,25 +1,16 @@
-// Frontend/vite.config.js
+import { fileURLToPath, URL } from 'node:url'
+
 import { defineConfig } from 'vite'
+import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
+import vueDevTools from 'vite-plugin-vue-devtools'
 
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
-
-  base: '/', // Set to '/subpath/' if deployed in a subdirectory
+  plugins: [vue(), vueDevTools(), tailwindcss()],
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.esm-bundler.js', // Ensure Vue is bundled correctly
-    },
-  },
-  css: {
-    postcss: './postcss.config.js',
-  },
-  build: {
-    outDir: 'dist', // Output to Frontend/dist
-    assetsDir: 'assets',
-    rollupOptions: {
-      // Ensure external modules are bundled
-      external: [],
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 })
