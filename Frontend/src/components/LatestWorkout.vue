@@ -53,57 +53,55 @@
           <p class="mt-2 text-sm opacity-90">{{ formatDate(workout.start_time) }}</p>
         </div>
         <div class="p-8">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <!-- Workout Details -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-              <h3 class="text-2xl font-semibold text-gray-900 mb-6">Details</h3>
-              <dl class="space-y-6">
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                  <dt class="text-sm font-medium text-gray-500">Duration</dt>
-                  <dd class="text-xl font-semibold text-gray-900 mt-1">
-                    {{ calculateDuration(workout.start_time, workout.end_time) }}
-                  </dd>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                  <dt class="text-sm font-medium text-gray-500">Exercises</dt>
-                  <dd class="text-xl font-semibold text-gray-900 mt-1">
-                    {{ workout.exercises.length }}
-                  </dd>
-                </div>
-                <div class="bg-white p-4 rounded-lg shadow-sm">
-                  <dt class="text-sm font-medium text-gray-500">Total Sets</dt>
-                  <dd class="text-xl font-semibold text-gray-900 mt-1">{{ totalSets }}</dd>
-                </div>
-              </dl>
-            </div>
-            <!-- Exercises -->
-            <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
-              <h3 class="text-2xl font-semibold text-gray-900 mb-6">Exercises</h3>
-              <div class="space-y-6">
-                <div
-                  v-for="exercise in workout.exercises"
-                  :key="exercise.exercise_template_id"
-                  class="bg-white p-6 rounded-lg shadow-sm transform transition-all hover:shadow-md hover:scale-[1.02]"
-                >
-                  <h4 class="text-xl font-semibold text-gray-800 mb-4">{{ exercise.title }}</h4>
-                  <ul class="space-y-3">
-                    <li
-                      v-for="set in exercise.sets"
-                      :key="set.index"
-                      class="bg-gray-50 p-3 rounded-md text-gray-700"
-                    >
-                      <span class="font-medium">Set {{ set.index + 1 }}:</span>
-                      {{ set.reps }} reps @ {{ set.weight_kg }} kg
-                    </li>
-                  </ul>
-                </div>
-                <p
-                  v-if="workout.exercises.length === 0"
-                  class="text-gray-500 italic text-center py-4"
-                >
-                  No exercises recorded.
-                </p>
+          <!-- Workout Details -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-sm mb-8">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Details</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <dt class="text-sm font-medium text-gray-500">Duration</dt>
+                <dd class="text-xl font-semibold text-gray-900 mt-1">
+                  {{ calculateDuration(workout.start_time, workout.end_time) }}
+                </dd>
               </div>
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <dt class="text-sm font-medium text-gray-500">Exercises</dt>
+                <dd class="text-xl font-semibold text-gray-900 mt-1">
+                  {{ workout.exercises.length }}
+                </dd>
+              </div>
+              <div class="bg-white p-4 rounded-lg shadow-sm">
+                <dt class="text-sm font-medium text-gray-500">Total Sets</dt>
+                <dd class="text-xl font-semibold text-gray-900 mt-1">{{ totalSets }}</dd>
+              </div>
+            </div>
+          </div>
+          <!-- Exercises -->
+          <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-6">Exercises</h3>
+            <div class="space-y-6">
+              <div
+                v-for="exercise in workout.exercises"
+                :key="exercise.exercise_template_id"
+                class="bg-white p-6 rounded-lg shadow-sm transform transition-all hover:shadow-md hover:scale-[1.02]"
+              >
+                <h4 class="text-xl font-semibold text-gray-800 mb-4">{{ exercise.title }}</h4>
+                <ul class="space-y-3">
+                  <li
+                    v-for="set in exercise.sets"
+                    :key="set.index"
+                    class="bg-gray-50 p-3 rounded-md text-gray-700"
+                  >
+                    <span class="font-medium">Set {{ set.index + 1 }}:</span>
+                    {{ set.reps }} reps @ {{ set.weight_kg }} kg
+                  </li>
+                </ul>
+              </div>
+              <p
+                v-if="workout.exercises.length === 0"
+                class="text-gray-500 italic text-center py-4"
+              >
+                No exercises recorded.
+              </p>
             </div>
           </div>
           <div class="mt-10 flex justify-end">
