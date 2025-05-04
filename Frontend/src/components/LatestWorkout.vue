@@ -163,7 +163,7 @@ const fetchLatestWorkout = async () => {
   loading.value = true
   error.value = null
   try {
-    const response = await fetch('/.netlify/functions/get-workouts?page=1&pageSize=1', {
+    const response = await fetch('/.netlify/functions/get-workout?page=1&pageSize=1', {
       headers: {
         Accept: 'application/json',
       },
@@ -180,7 +180,7 @@ const fetchLatestWorkout = async () => {
 
 const fetchWorkoutCount = async () => {
   try {
-    const response = await fetch('/.netlify/functions/get-workouts-count', {
+    const response = await fetch('/.netlify/functions/get-workout-count', {
       headers: {
         Accept: 'application/json',
       },
