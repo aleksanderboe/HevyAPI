@@ -75,7 +75,7 @@
               </div>
             </div>
           </div>
-          <!-- Exercises بلوك التعليمات -->
+          <!-- Exercises-->
           <div class="bg-gray-50 p-6 rounded-xl shadow-sm">
             <h3 class="text-2xl font-semibold text-gray-900 mb-6">Exercises</h3>
             <div class="space-y-6">
