@@ -3,11 +3,11 @@
   # Base directory for the build (equivalent to "Base directory: Frontend")
   base = "Frontend"
   # Directory where the built site is output (equivalent to "Publish directory: Frontend/dist")
-  publish = "Frontend/dist"
+  publish = "dist"
   # Build command to run (equivalent to "Build command: npm run build")
   command = "npm run build"
   # Directory where Netlify Functions are stored (equivalent to "Functions directory: Frontend/netlify/functions")
-  functions = "Frontend/netlify/functions"
+  functions = "netlify/functions"
 
 # Functions configuration
 [functions]
