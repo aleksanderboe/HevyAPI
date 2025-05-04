@@ -89,10 +89,17 @@
                   <li
                     v-for="set in exercise.sets"
                     :key="set.index"
-                    class="bg-gray-50 p-3 rounded-md text-gray-700"
+                    class="bg-white p-3 rounded-lg border border-gray-100 shadow-sm flex items-center justify-between"
                   >
-                    <span class="font-medium">Set {{ set.index + 1 }}:</span>
-                    {{ set.reps }} reps @ {{ set.weight_kg }} kg
+                    <span class="flex items-center">
+                      <span
+                        class="w-8 h-8 flex items-center justify-center rounded-full bg-blue-50 text-blue-600 font-semibold mr-3"
+                      >
+                        {{ set.index + 1 }}
+                      </span>
+                      <span class="text-gray-600">{{ set.reps }} reps</span>
+                    </span>
+                    <span class="text-gray-900 font-medium">{{ set.weight_kg }} kg</span>
                   </li>
                 </ul>
               </div>
