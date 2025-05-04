@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
+
   base: '/', // Set to '/subpath/' if deployed in a subdirectory
   resolve: {
     alias: {
