@@ -11,6 +11,9 @@ export default defineConfig({
       vue: 'vue/dist/vue.esm-bundler.js', // Ensure Vue is bundled correctly
     },
   },
+  css: {
+    postcss: './postcss.config.js',
+  },
   build: {
     outDir: 'dist', // Output to Frontend/dist
     assetsDir: 'assets',
