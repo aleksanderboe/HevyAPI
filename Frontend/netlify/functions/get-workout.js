@@ -1,4 +1,4 @@
-// netlify/functions/get-workouts.js
+// netlify/functions/get-workout.js
 import fetch from 'node-fetch'
 
 export async function handler(event) {
