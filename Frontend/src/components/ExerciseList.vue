@@ -22,7 +22,9 @@
               </span>
               <span class="text-gray-600">{{ set.reps }} reps</span>
             </span>
-            <span class="text-gray-900 font-medium">{{ set.weight_kg }} kg</span>
+            <span v-if="set.weight_kg" class="text-gray-900 font-medium"
+              >{{ set.weight_kg }} kg</span
+            >
           </li>
         </ul>
       </div>
