@@ -1,6 +1,10 @@
 <template>
-  <div class="bg-white shadow-2xl rounded-2xl overflow-hidden">
-    <div class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-8">
+  <div
+    class="bg-white dark:bg-gray-800 shadow-2xl rounded-2xl overflow-hidden transition-colors duration-300"
+  >
+    <div
+      class="bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-700 dark:to-indigo-700 text-white px-8 py-8"
+    >
       <h2 class="text-4xl font-bold">{{ workout.title || 'Untitled Workout' }}</h2>
       <p class="mt-2 text-sm opacity-90">{{ formatDate(workout.start_time) }}</p>
     </div>
@@ -10,7 +14,7 @@
       <div class="mt-10 flex justify-end">
         <button
           @click="$emit('refresh')"
-          class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl shadow-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-300 transform hover:scale-105"
+          class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-semibold rounded-xl shadow-md text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 dark:from-blue-700 dark:to-indigo-700 dark:hover:from-blue-800 dark:hover:to-indigo-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-gray-800 transition-all duration-300 transform hover:scale-105"
         >
           <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path

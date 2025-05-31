@@ -1,6 +1,6 @@
 <template>
   <div
-    class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8"
+    class="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-blue-950 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300"
   >
     <div class="max-w-6xl w-full space-y-10">
       <WorkoutHeader :total-workouts="totalWorkouts" />

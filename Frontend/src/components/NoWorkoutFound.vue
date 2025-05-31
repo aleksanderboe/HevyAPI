@@ -1,7 +1,7 @@
 <template>
   <div class="text-center py-16">
     <svg
-      class="mx-auto h-16 w-16 text-gray-400"
+      class="mx-auto h-16 w-16 text-gray-400 dark:text-gray-500 transition-colors duration-300"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -13,6 +13,10 @@
         d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
       />
     </svg>
-    <p class="mt-6 text-xl text-gray-600 font-medium">No workouts found.</p>
+    <p
+      class="mt-6 text-xl text-gray-600 dark:text-gray-300 font-medium transition-colors duration-300"
+    >
+      No workouts found.
+    </p>
   </div>
 </template>
